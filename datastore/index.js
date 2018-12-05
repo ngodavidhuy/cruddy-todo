@@ -30,12 +30,12 @@ exports.readAll = (callback) => {
     return files.map(id => {
       let fileLocation = path.join(exports.dataDir, id);
       return readFilePromise(fileLocation, 'utf8').then(text => {
-        return { id: path.basename(id, '.txt'), text }
+        return { id: path.basename(id, '.txt'), text };
       });
-    })
+    });
   });
 
-  Promise.all(data).then((data) => { callback(null, data); })
+  Promise.all(data).then((data) => { callback(null, data); });
 };
 
 // fs.readdir(exports.dataDir, (err, items) => {
